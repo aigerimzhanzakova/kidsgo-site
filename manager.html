@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KidsGo - менеджер</title>
+    <meta
+      name="description"
+      content="Рабочая страница менеджера KidsGo для просмотра заявок, маршрутов и адресов."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="manager-page">
+    <header class="site-header manager-header-bar">
+      <a class="brand" href="index.html" aria-label="KidsGo">
+        <span class="brand-mark">KG</span>
+        <span>
+          <strong>KidsGo</strong>
+          <small>Менеджер</small>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Навигация менеджера">
+        <a href="index.html">Главная</a>
+        <a href="#routes">Маршруты</a>
+        <a href="#leads">Заявки</a>
+      </nav>
+      <button class="menu-button" type="button" data-menu-button aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main class="manager-shell">
+      <section class="manager-hero">
+        <div>
+          <p class="eyebrow">Рабочий экран</p>
+          <h1>Заявки и потенциальные маршруты</h1>
+          <p>
+            Здесь менеджер видит входящие заявки, адреса детей, точки назначения и
+            группы, из которых можно собрать первые маршруты KidsGo.
+          </p>
+        </div>
+        <div class="manager-tools">
+          <button class="button button-outline" type="button" data-export>Скачать CSV</button>
+          <button class="button button-danger" type="button" data-clear>Очистить</button>
+        </div>
+      </section>
+
+      <section class="stat-grid" aria-label="Количество заявок">
+        <article class="stat-card stat-card-accent">
+          <span>Всего заявок</span>
+          <strong data-total>0</strong>
+        </article>
+        <article class="stat-card">
+          <span>Новые</span>
+          <strong data-new>0</strong>
+        </article>
+        <article class="stat-card">
+          <span>В работе</span>
+          <strong data-progress>0</strong>
+        </article>
+        <article class="stat-card">
+          <span>Потенциальные маршруты</span>
+          <strong data-routes-count>0</strong>
+        </article>
+      </section>
+
+      <section class="manager-board" id="routes">
+        <div class="board-heading">
+          <div>
+            <p class="eyebrow">Маршруты</p>
+            <h2>Группы по району и адресу назначения</h2>
+          </div>
+          <span class="board-note">Автоматическая группировка из заявок</span>
+        </div>
+        <div class="route-groups" data-routes></div>
+        <p class="empty-state" data-routes-empty>Маршруты появятся после первой заявки.</p>
+      </section>
+
+      <section class="manager-board" id="leads">
+        <div class="board-heading">
+          <div>
+            <p class="eyebrow">Адреса</p>
+            <h2>Все заявки</h2>
+          </div>
+          <a class="button button-primary" href="index.html#request">Добавить заявку</a>
+        </div>
+        <div class="lead-list" data-leads-list></div>
+        <p class="empty-state" data-leads-empty>Заявок пока нет.</p>
+      </section>
+    </main>
+
+    <div class="toast" data-toast role="status" aria-live="polite"></div>
+    <script src="manager.js"></script>
+  </body>
+</html>

@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KidsGo Kazakhstan</title>
+    <meta
+      name="description"
+      content="KidsGo - современный сервис безопасной развозки детей в школу и домой в Алматы."
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="landing-page">
+    <header class="landing-header">
+      <a class="brand-lockup" href="#top" aria-label="KidsGo Kazakhstan">
+        <span>KidsGo Kazakhstan</span>
+      </a>
+      <nav class="landing-nav" aria-label="Навигация">
+        <a href="#why">Преимущества</a>
+        <a href="#process">Как работает</a>
+        <a href="#pricing">Стоимость</a>
+      </nav>
+      <a class="header-button" href="#request">Оставить заявку</a>
+    </header>
+
+    <main>
+      <section class="hero-saas" id="top">
+        <div class="hero-panel">
+          <div class="hero-content">
+            <span class="hero-kicker">KidsGo Kazakhstan</span>
+            <h1>Безопасная развозка детей для занятых родителей</h1>
+            <p>
+              Организуем поездки в школу, сад и секции по совместным маршрутам:
+              спокойно для родителей, удобно для детей, технологично для города.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-action" href="#request">Оставить заявку</a>
+              <a class="secondary-action" href="#process">Как это работает</a>
+            </div>
+            <div class="hero-proof" aria-label="Ключевые показатели">
+              <div>
+                <strong>Алматы</strong>
+                <span>старт сервиса</span>
+              </div>
+              <div>
+                <strong>4 района</strong>
+                <span>в приоритете</span>
+              </div>
+              <div>
+                <strong>GPS</strong>
+                <span>контроль поездки</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img src="assets/hero-parent-car.png" alt="Родитель и ребенок рядом с автомобилем KidsGo" />
+            <div class="floating-card route-widget">
+              <span>Сегодня</span>
+              <strong>Дом → школа</strong>
+              <small>Подача 07:45</small>
+            </div>
+            <div class="floating-card safety-widget">
+              <span>Безопасность</span>
+              <strong>Маршрут под контролем</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Основные преимущества">
+        <div>
+          <span class="mini-icon check-icon"></span>
+          <strong>Проверенный подход</strong>
+          <p>адреса, время и маршрут уточняются заранее</p>
+        </div>
+        <div>
+          <span class="mini-icon time-icon"></span>
+          <strong>Без лишней суеты</strong>
+          <p>ребенок приезжает по понятному расписанию</p>
+        </div>
+        <div>
+          <span class="mini-icon location-icon"></span>
+          <strong>Контроль поездки</strong>
+          <p>родитель всегда понимает, где едет ребенок</p>
+        </div>
+      </section>
+
+      <section class="section-block why-section" id="why">
+        <div class="section-heading">
+          <span>Почему KidsGo</span>
+          <h2>Сервис выглядит как такси, но создан специально для семей</h2>
+          <p>
+            Мы соединяем направление поездки, расписание и спрос родителей, чтобы
+            собрать устойчивые детские маршруты по Алматы.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <span class="feature-icon route-icon"></span>
+            <h3>Умный подбор маршрута</h3>
+            <p>Учитываем район, школу, направление движения и время занятий.</p>
+          </article>
+          <article>
+            <span class="feature-icon chat-icon"></span>
+            <h3>Понятная коммуникация</h3>
+            <p>После заявки мы уточняем детали и предлагаем подходящий формат поездки.</p>
+          </article>
+          <article>
+            <span class="feature-icon shield-soft-icon"></span>
+            <h3>Фокус на безопасности</h3>
+            <p>Сервис строится вокруг доверия родителей, контроля маршрута и качества.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="photo-story section-block">
+        <div class="story-photo">
+          <img src="assets/trust-ride.png" alt="Безопасная посадка ребенка в автомобиль KidsGo" />
+        </div>
+        <div class="story-copy">
+          <span>Для школы, сада и секций</span>
+          <h2>Один организованный маршрут вместо ежедневной логистики</h2>
+          <p>
+            KidsGo помогает семьям экономить время и снижать стоимость поездок за
+            счет совместных маршрутов. Родитель оставляет заявку, а мы проверяем
+            возможность подобрать попутчиков по направлению и расписанию.
+          </p>
+          <div class="district-pills">
+            <span>Бостандыкский</span>
+            <span>Медеуский</span>
+            <span>Наурызбайский</span>
+            <span>Ауэзовский</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block process-section" id="process">
+        <div class="section-heading center">
+          <span>Как работает</span>
+          <h2>Четыре простых шага</h2>
+        </div>
+        <div class="process-track">
+          <article>
+            <span>1</span>
+            <div class="process-icon form-step"></div>
+            <h3>Оставляете заявку</h3>
+            <p>Рассказываете, откуда и куда нужно возить ребенка.</p>
+          </article>
+          <article>
+            <span>2</span>
+            <div class="process-icon route-step"></div>
+            <h3>Мы смотрим маршрут</h3>
+            <p>Проверяем район, расписание и потенциальных попутчиков.</p>
+          </article>
+          <article>
+            <span>3</span>
+            <div class="process-icon call-step"></div>
+            <h3>Уточняем детали</h3>
+            <p>Связываемся с вами и обсуждаем время подачи.</p>
+          </article>
+          <article>
+            <span>4</span>
+            <div class="process-icon school-step"></div>
+            <h3>Запускаем поездку</h3>
+            <p>Ребенок вовремя приезжает в школу или домой.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="pricing-section section-block" id="pricing">
+        <div class="section-heading">
+          <span>Стоимость</span>
+          <h2>Ориентиры по ежемесячной развозке</h2>
+          <p>
+            Финальная цена зависит от расстояния, расписания, направления и
+            количества детей в маршруте.
+          </p>
+        </div>
+        <div class="pricing-grid">
+          <article>
+            <span>до 3 км</span>
+            <strong>от 50 000 ₸</strong>
+          </article>
+          <article>
+            <span>до 5 км</span>
+            <strong>от 60 000 ₸</strong>
+          </article>
+          <article>
+            <span>до 10 км</span>
+            <strong>от 80 000 ₸</strong>
+          </article>
+        </div>
+        <div class="pricing-note">
+          <span>Скидки доступны для детей из одной семьи</span>
+          <span>Можно рассчитать поездку в одну сторону</span>
+        </div>
+      </section>
+
+      <section class="application-section section-block" id="request">
+        <div class="section-heading center">
+          <span>Заявка</span>
+          <h2>Оставьте маршрут ребенка</h2>
+          <p>Мы свяжемся с вами и подберем удобный вариант поездки.</p>
+        </div>
+
+        <form class="lead-form compact-form" id="leadForm">
+          <div class="form-grid">
+            <label>
+              Имя родителя
+              <input name="parentName" autocomplete="name" required />
+            </label>
+            <label>
+              Телефон
+              <input
+                name="phone"
+                type="tel"
+                inputmode="tel"
+                autocomplete="tel"
+                placeholder="+7"
+                required
+              />
+            </label>
+            <label>
+              Город
+              <select name="district" required>
+                <option value="">Выберите город</option>
+                <option>Алматы</option>
+                <option>Астана</option>
+                <option>Шымкент</option>
+                <option>Другой город Казахстана</option>
+              </select>
+            </label>
+            <label>
+              Имя ребенка
+              <input name="childName" required />
+            </label>
+            <label class="span-2 address-field">
+              Адрес дома
+              <input
+                name="homeAddress"
+                autocomplete="off"
+                placeholder="Например: Абая 109"
+                data-address-input
+                required
+              />
+              <span class="address-status" data-address-status>
+                Начните вводить адрес, затем выберите вариант из списка или точку на карте.
+              </span>
+              <div class="address-actions">
+                <button type="button" data-search-address>Найти адрес</button>
+              </div>
+              <div class="address-suggestions" data-address-suggestions hidden></div>
+            </label>
+            <div class="span-2 address-map-shell">
+              <div class="address-map" id="homeMap" aria-label="Карта для выбора адреса дома"></div>
+              <div class="map-helper">
+                <span data-map-helper>Если адреса нет в списке, поставьте точку на карте вручную.</span>
+                <button type="button" data-use-map-center>Выбрать центр карты</button>
+              </div>
+              <input type="hidden" name="homeLat" data-home-lat />
+              <input type="hidden" name="homeLng" data-home-lng />
+            </div>
+            <label class="span-2">
+              Школа, сад или секция
+              <input name="schoolAddress" required />
+            </label>
+            <label>
+              Направление
+              <select name="direction" required>
+                <option>Туда и обратно</option>
+                <option>Только утром</option>
+                <option>Только домой</option>
+              </select>
+            </label>
+            <label>
+              Начало занятий
+              <input name="startTime" type="time" required />
+            </label>
+            <label>
+              Окончание занятий
+              <input name="endTime" type="time" required />
+            </label>
+            <label>
+              Детей в семье
+              <input name="childrenCount" type="number" min="1" max="6" value="1" required />
+            </label>
+            <label class="span-2">
+              Комментарий
+              <textarea
+                name="comment"
+                rows="3"
+                placeholder="Например: нужна поездка по будням"
+              ></textarea>
+            </label>
+          </div>
+          <button class="primary-action form-submit" type="submit">
+            Отправить заявку
+          </button>
+          <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="contact-section">
+        <div>
+          <span>Связаться с нами</span>
+          <h2>KidsGo Kazakhstan</h2>
+        </div>
+        <div class="contact-actions">
+          <a href="tel:+77776928397">+7 777 692 83 97</a>
+          <a
+            class="instagram-link"
+            href="https://www.instagram.com/kidsgo.kz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram KidsGo Kazakhstan"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1.2"></circle>
+            </svg>
+            @kidsgo.kz
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" data-toast role="status" aria-live="polite"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
