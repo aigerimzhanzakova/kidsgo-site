@@ -1804,7 +1804,7 @@ body.landing-page {
 .landing-header {
   position: sticky;
   top: 0;
-  z-index: 30;
+  z-index: 120;
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 22px;
@@ -2541,20 +2541,25 @@ body.landing-page {
 
 .landing-page .form-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 16px;
 }
 
 .landing-page label {
   display: grid;
+  grid-column: span 3;
   gap: 7px;
   color: var(--kg-green-dark);
   font-size: 0.9rem;
   font-weight: 870;
 }
 
-.landing-page .span-2 {
+.landing-page .field-third {
   grid-column: span 2;
+}
+
+.landing-page .span-2 {
+  grid-column: span 6;
 }
 
 .landing-page input,
@@ -2583,6 +2588,54 @@ body.landing-page {
 
 .address-field {
   position: relative;
+  z-index: 20;
+}
+
+.address-field.is-active,
+.address-field:focus-within {
+  z-index: 35;
+}
+
+.address-pair-field {
+  align-content: start;
+}
+
+.address-pair-field .field-title {
+  display: flex;
+  min-height: 20px;
+  align-items: flex-end;
+  white-space: nowrap;
+}
+
+.address-pair-field input {
+  height: 50px;
+}
+
+.address-pair-field.is-active .field-title {
+  color: var(--kg-green);
+}
+
+.address-pair-field.is-active input {
+  border-color: rgba(13, 92, 83, 0.45);
+  box-shadow: 0 0 0 3px rgba(13, 92, 83, 0.1);
+}
+
+.address-pair-field input:disabled {
+  color: rgba(38, 55, 51, 0.58);
+  background: #eef3f1;
+  cursor: not-allowed;
+}
+
+.address-support {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: -6px;
+  padding: 10px 12px;
+  border: 1px solid rgba(13, 92, 83, 0.1);
+  border-radius: 8px;
+  background: rgba(13, 92, 83, 0.045);
 }
 
 .address-status {
@@ -2612,6 +2665,14 @@ body.landing-page {
 
 .address-actions button:hover {
   background: var(--kg-yellow-dark);
+}
+
+.address-actions button:disabled,
+.map-helper button:disabled {
+  color: rgba(38, 55, 51, 0.55);
+  background: #e4ebe8;
+  box-shadow: none;
+  cursor: not-allowed;
 }
 
 .address-suggestions {
@@ -2704,6 +2765,9 @@ body.landing-page {
 }
 
 .address-map-shell {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
   overflow: hidden;
   border: 1px solid var(--kg-line);
   border-radius: 8px;
@@ -2711,6 +2775,8 @@ body.landing-page {
 }
 
 .address-map {
+  position: relative;
+  z-index: 0;
   height: 310px;
   min-height: 310px;
   background:
@@ -2744,7 +2810,67 @@ body.landing-page {
 }
 
 .leaflet-container {
+  z-index: 0;
   font-family: inherit;
+}
+
+.address-map .leaflet-pane,
+.address-map .leaflet-control-container {
+  z-index: 1;
+}
+
+.address-map .leaflet-top,
+.address-map .leaflet-bottom {
+  z-index: 2;
+}
+
+.address-marker {
+  display: grid;
+  width: 36px !important;
+  height: 36px !important;
+  place-items: center;
+  background: transparent;
+}
+
+.address-marker span {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 3px solid var(--kg-paper);
+  border-radius: 50% 50% 50% 0;
+  box-shadow: 0 10px 22px rgba(6, 61, 54, 0.24);
+  transform: rotate(-45deg);
+}
+
+.address-marker b {
+  display: grid;
+  width: 21px;
+  height: 21px;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 0.76rem;
+  font-weight: 950;
+  line-height: 1;
+  transform: rotate(45deg);
+}
+
+.address-marker.home-pin span {
+  background: var(--kg-green);
+}
+
+.address-marker.school-pin span {
+  background: var(--kg-yellow);
+}
+
+.address-marker.home-pin b {
+  color: var(--kg-paper);
+  background: var(--kg-green-dark);
+}
+
+.address-marker.school-pin b {
+  color: var(--kg-green-dark);
+  background: var(--kg-paper);
 }
 
 .landing-page .form-submit {
@@ -2967,8 +3093,29 @@ body.landing-page {
     grid-column: span 1;
   }
 
+  .landing-page label,
+  .landing-page .field-third {
+    grid-column: span 1;
+  }
+
   .landing-page .lead-form {
     padding: 18px;
+  }
+
+  .address-pair-field .field-title {
+    min-height: 0;
+    white-space: normal;
+  }
+
+  .address-support {
+    align-items: stretch;
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .address-actions,
+  .address-actions button {
+    width: 100%;
   }
 
   .address-suggestions {

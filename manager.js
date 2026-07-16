@@ -57,8 +57,13 @@ exportButton.addEventListener("click", () => {
     "phone",
     "district",
     "childName",
+    "childBirthYear",
     "homeAddress",
+    "homeLat",
+    "homeLng",
     "schoolAddress",
+    "schoolLat",
+    "schoolLng",
     "direction",
     "startTime",
     "endTime",
@@ -167,8 +172,12 @@ function renderLeads() {
           <strong>${escapeHtml(lead.schoolAddress)}</strong>
         </div>
         <div>
-          <span>Район</span>
+          <span>Город</span>
           <strong>${escapeHtml(lead.district)}</strong>
+        </div>
+        <div>
+          <span>Год рождения</span>
+          <strong>${escapeHtml(lead.childBirthYear || "-")}</strong>
         </div>
         <div>
           <span>Время</span>
