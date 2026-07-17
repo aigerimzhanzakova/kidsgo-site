@@ -1,7 +1,11 @@
 const STORAGE_KEY = "kidsgo_leads_v2";
+// Paste the deployed Google Apps Script Web app URL here.
+const GOOGLE_SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw4QNhSGlxVa3Ka8IvP3EY6grsCfPrrMCGO9EMlTGXo7FaEJTzXGfAElIqK-TYt5_zs/exec";
+const GOOGLE_SHEETS_OWNER_EMAIL = "aigerim.zhanzakova@gmail.com";
 
 const form = document.querySelector("#leadForm");
 const formMessage = document.querySelector("#formMessage");
+const submitButton = form?.querySelector('[type="submit"]');
 const toast = document.querySelector("[data-toast]");
 const addressStatus = document.querySelector("[data-address-status]");
 const searchAddressButton = document.querySelector("[data-search-address]");
@@ -62,14 +66,14 @@ initAddressMap();
 bindAddressSearch();
 citySelect?.addEventListener("change", handleCityChange);
 
-form?.addEventListener("submit", (event) => {
+form?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   if (!form.reportValidity()) {
     return;
   }
 
-  if (mapReady) {
+  if (false && mapReady) {
     const missingAddress = Object.values(addressConfigs).find(
       (config) => !config.latInput?.value || !config.lngInput?.value
     );
@@ -91,7 +95,6 @@ form?.addEventListener("submit", (event) => {
     phone: getValue(formData, "phone"),
     district: getValue(formData, "district"),
     childName: getValue(formData, "childName"),
-    childBirthYear: getValue(formData, "childBirthYear"),
     homeAddress: getValue(formData, "homeAddress"),
     homeLat: getValue(formData, "homeLat"),
     homeLng: getValue(formData, "homeLng"),
@@ -109,14 +112,27 @@ form?.addEventListener("submit", (event) => {
   leads.unshift(lead);
   saveLeads(leads);
 
+  const originalButtonText = submitButton?.textContent;
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.textContent = "Отправляем...";
+  }
+
+  const sentToSheets = await submitLeadToGoogleSheets(lead);
+
   form.reset();
   form.elements.childrenCount.value = "1";
   form.elements.direction.value = "Туда и обратно";
   resetAddressPoints();
   updateAddressAvailability();
+  if (submitButton) {
+    submitButton.disabled = false;
+    submitButton.textContent = originalButtonText;
+  }
   formMessage.textContent =
     "Спасибо! Заявка принята. Мы свяжемся с вами и уточним детали маршрута.";
   showToast("Заявка отправлена.");
+  return;
 });
 
 function initAddressMap() {
@@ -603,6 +619,26 @@ function shortAddress(item) {
   }
 
   return name || road || item.display_name.split(",").slice(0, 2).join(",");
+}
+
+async function submitLeadToGoogleSheets(lead) {
+  if (!GOOGLE_SHEETS_WEB_APP_URL) {
+    return false;
+  }
+
+  try {
+    await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+      },
+      body: JSON.stringify(lead),
+    });
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 function loadLeads() {

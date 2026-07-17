@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Развозка детей в Казахстане - KidsGo | Школа, кружки, секции</title>
+    <title>Развозка детей по Казахстану - KidsGo | Школы, сады, секции</title>
     <meta
       name="description"
       content="Безопасная перевозка детей в школу, кружки и секции в городах Казахстана. GPS-контроль, проверенные водители, удобные маршруты и заявка онлайн."
@@ -15,6 +15,8 @@
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="author" content="KidsGo Kazakhstan" />
     <meta name="theme-color" content="#0D5C53" />
+    <link rel="icon" href="assets/kidsgo-icon.svg" type="image/svg+xml" />
+    <link rel="shortcut icon" href="assets/kidsgo-icon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://kidsgo.kz/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ru_KZ" />
@@ -87,6 +89,7 @@
   <body class="landing-page">
     <header class="landing-header">
       <a class="brand-lockup" href="#top" aria-label="KidsGo Kazakhstan">
+        <img src="assets/kidsgo-logo.svg" alt="" />
         <span>KidsGo Kazakhstan</span>
       </a>
       <nav class="landing-nav" aria-label="Навигация">
@@ -281,7 +284,7 @@
           <div class="form-grid">
             <label>
               Имя родителя
-              <input name="parentName" autocomplete="name" required />
+              <input name="parentName" autocomplete="name" />
             </label>
             <label>
               Телефон
@@ -296,7 +299,7 @@
             </label>
             <label class="field-third">
               Кол-во детей
-              <select name="childrenCount" required>
+              <select name="childrenCount">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -307,29 +310,7 @@
             </label>
             <label class="field-third">
               Имя ребенка
-              <input name="childName" required />
-            </label>
-            <label class="field-third">
-              Год рождения
-              <select name="childBirthYear" required>
-                <option value="">Выберите год</option>
-                <option>2023</option>
-                <option>2022</option>
-                <option>2021</option>
-                <option>2020</option>
-                <option>2019</option>
-                <option>2018</option>
-                <option>2017</option>
-                <option>2016</option>
-                <option>2015</option>
-                <option>2014</option>
-                <option>2013</option>
-                <option>2012</option>
-                <option>2011</option>
-                <option>2010</option>
-                <option>2009</option>
-                <option>2008</option>
-              </select>
+              <input name="childName" />
             </label>
             <label>
               Город
@@ -354,7 +335,7 @@
             </label>
             <label>
               Направление
-              <select name="direction" required>
+              <select name="direction">
                 <option>Туда и обратно</option>
                 <option>Только в школу/сад/секцию</option>
                 <option>Только домой</option>
@@ -368,7 +349,6 @@
                 placeholder="Например: Абая 109"
                 data-address-input="home"
                 disabled
-                required
               />
               <div class="address-suggestions" data-address-suggestions="home" hidden></div>
             </label>
@@ -380,24 +360,12 @@
                 placeholder="Например: школа №..."
                 data-address-input="school"
                 disabled
-                required
               />
               <div class="address-suggestions" data-address-suggestions="school" hidden></div>
             </label>
-            <div class="span-2 address-support">
-              <span class="address-status" data-address-status>
-                Начните вводить адрес дома или школы, затем выберите вариант из списка или точку на карте.
-              </span>
-              <div class="address-actions">
-                <button type="button" data-search-address disabled>Найти адрес</button>
-              </div>
-            </div>
             <div class="span-2 address-map-shell">
+              <span data-address-status hidden></span>
               <div class="address-map" id="homeMap" aria-label="Карта для выбора адресов дома и школы"></div>
-              <div class="map-helper">
-                <span data-map-helper>Выберите поле адреса, затем поставьте точку на карте вручную.</span>
-                <button type="button" data-use-map-center disabled>Выбрать центр для адреса</button>
-              </div>
               <input type="hidden" name="homeLat" data-home-lat />
               <input type="hidden" name="homeLng" data-home-lng />
               <input type="hidden" name="schoolLat" data-school-lat />
@@ -405,11 +373,11 @@
             </div>
             <label>
               Начало занятий
-              <input name="startTime" type="time" required />
+              <input name="startTime" type="time" />
             </label>
             <label>
               Окончание занятий
-              <input name="endTime" type="time" required />
+              <input name="endTime" type="time" />
             </label>
             <label class="span-2">
               Комментарий

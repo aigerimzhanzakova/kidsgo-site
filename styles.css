@@ -1824,9 +1824,17 @@ body.landing-page {
 .brand-lockup {
   display: inline-flex;
   align-items: center;
+  gap: 10px;
   color: var(--kg-green-dark);
   font-size: 1.16rem;
   font-weight: 950;
+}
+
+.brand-lockup img {
+  display: block;
+  width: 96px;
+  height: 42px;
+  object-fit: contain;
 }
 
 .brand-symbol {
@@ -3005,6 +3013,11 @@ body.landing-page {
 
   .brand-lockup {
     font-size: 1.05rem;
+  }
+
+  .brand-lockup img {
+    width: 78px;
+    height: 36px;
   }
 
   .brand-symbol {
